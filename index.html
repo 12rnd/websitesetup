@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxe | Premium Interactive Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <div id="entrance-overlay">
+        <div class="entrance-logo">
+            <img src="logo.png" alt="LUXE Logo">
+        </div>
+    </div>
+    <div class="app-container">
+        <!-- Marquee -->
+        <div class="marquee-container">
+            <div class="marquee-content">
+                <span>FREE SHIPPING OVER $150</span>
+                <span class="separator">•</span>
+                <span>WORLDWIDE DELIVERY</span>
+                <span class="separator">•</span>
+                <span>EASY RETURNS</span>
+                <span class="separator">•</span>
+                <span>PREMIUM QUALITY</span>
+                <span class="separator">•</span>
+                <span>FREE SHIPPING OVER $150</span>
+                <span class="separator">•</span>
+                <span>WORLDWIDE DELIVERY</span>
+                <span class="separator">•</span>
+                <span>EASY RETURNS</span>
+                <span class="separator">•</span>
+                <span>PREMIUM QUALITY</span>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="logo">
+                <img src="logo.png" alt="LUXE Logo">
+            </div>
+            <div class="nav-actions">
+                <button id="cart-btn" class="icon-btn" aria-label="Open Cart">
+                    <i data-lucide="shopping-bag"></i>
+                    <span id="cart-count" class="badge">0</span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <header class="hero">
+            <h1>Curated Essentials</h1>
+            <p>Elevate your everyday with our premium selection.</p>
+        </header>
+
+        <!-- Filter Section -->
+        <section class="filters">
+            <button class="filter-btn active" data-category="all">All</button>
+            <button class="filter-btn" data-category="electronics">Electronics</button>
+            <button class="filter-btn" data-category="lifestyle">Lifestyle</button>
+            <button class="filter-btn" data-category="accessories">Accessories</button>
+        </section>
+
+        <!-- Product Grid -->
+        <main id="product-grid" class="product-grid">
+            <!-- Products injected here -->
+        </main>
+
+        <!-- Cart Sidebar -->
+        <div id="cart-overlay" class="cart-overlay"></div>
+        <aside id="cart-sidebar" class="cart-sidebar">
+            <div class="cart-header">
+                <h2>Your Bag</h2>
+                <button id="close-cart" class="icon-btn"><i data-lucide="x"></i></button>
+            </div>
+            <div id="cart-items" class="cart-items">
+                <!-- Cart items injected here -->
+                <div class="empty-cart-msg">Your bag is empty.</div>
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total</span>
+                    <span id="cart-total-price">$0.00</span>
+                </div>
+                <button class="checkout-btn">Checkout</button>
+            </div>
+        </aside>
+
+        <!-- Toast Notification -->
+        <div id="toast" class="toast">Item added to cart</div>
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
+            <h2>Join Our Newsletter</h2>
+            <p>Subscribe to receive updates, access to exclusive deals, and more.</p>
+            <form id="newsletter-form" class="newsletter-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Help</h3>
+                    <a href="#">Shipping & Returns</a>
+                    <a href="#">FAQ</a>
+                    <a href="#">Contact Us</a>
+                    <a href="#">Size Guide</a>
+                </div>
+                <div class="footer-col">
+                    <h3>About</h3>
+                    <a href="#">Our Story</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Sustainability</a>
+                    <a href="#">Press</a>
+                </div>
+                <div class="footer-col">
+                    <h3>Socials</h3>
+                    <div class="social-icons">
+                        <a href="#"><i data-lucide="instagram"></i></a>
+                        <a href="#"><i data-lucide="twitter"></i></a>
+                        <a href="#"><i data-lucide="facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 LUXE. All rights reserved.</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

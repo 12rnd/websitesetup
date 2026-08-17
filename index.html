@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Noto+Serif+JP:wght@500;600&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #ffffff; color: #14171a; font-family: 'Archivo', sans-serif; -webkit-font-smoothing: antialiased; }
+a { color: #14171a; text-decoration: none; }
+a:hover { color: #244662; }
+::selection { background: #244662; color: #ffffff; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+@keyframes moonspin { to { transform: rotate(360deg); } }
+[data-idxrow] [data-idxthumb] { opacity: 0; transform: scale(0.92); transition: opacity .3s, transform .35s cubic-bezier(.2,.8,.2,1); }
+[data-idxrow]:hover [data-idxthumb] { opacity: 1; transform: scale(1); }
+[data-clip-card]:hover [data-clip-hover] { opacity: 1; }
+[data-strip] { scrollbar-width: none; }
+[data-strip]::-webkit-scrollbar { display: none; }
+</style>
+</helmet>
+<div style="background:#ffffff;color:#14171a;overflow:clip">
+  <div data-intro-overlay="" style="position:fixed;inset:0;z-index:100;background:#ffffff;display:flex;flex-direction:column;justify-content:center;align-items:center;will-change:transform">
+    <span data-intro-glyph="" style="font-family:'Noto Serif JP',serif;font-weight:600;font-size:clamp(80px,14vw,180px);line-height:1;opacity:0;transform:scale(0.92);color:#14171a">月</span>
+    <div style="display:flex;overflow:hidden;margin-top:8px">
+      <span data-intro-letter="" style="display:inline-block;transform:translateY(115%);font-weight:850;font-stretch:125%;text-transform:uppercase;font-size:clamp(40px,7vw,96px);line-height:1;letter-spacing:-0.02em">G</span>
+      <span data-intro-letter="" style="display:inline-block;transform:translateY(115%);font-weight:850;font-stretch:125%;text-transform:uppercase;font-size:clamp(40px,7vw,96px);line-height:1;letter-spacing:-0.02em">E</span>
+      <span data-intro-letter="" style="display:inline-block;transform:translateY(115%);font-weight:850;font-stretch:125%;text-transform:uppercase;font-size:clamp(40px,7vw,96px);line-height:1;letter-spacing:-0.02em">T</span>
+      <span data-intro-letter="" style="display:inline-block;transform:translateY(115%);font-weight:850;font-stretch:125%;text-transform:uppercase;font-size:clamp(40px,7vw,96px);line-height:1;letter-spacing:-0.02em">S</span>
+      <span data-intro-letter="" style="display:inline-block;transform:translateY(115%);font-weight:850;font-stretch:125%;text-transform:uppercase;font-size:clamp(40px,7vw,96px);line-height:1;letter-spacing:-0.02em">U</span>
+    </div>
+    <div style="overflow:hidden;margin-top:10px">
+      <span data-intro-sub="" style="display:inline-block;transform:translateY(120%);font-family:'IBM Plex Mono',monospace;font-size:13px;text-transform:uppercase;letter-spacing:0.5em;color:rgba(20,23,26,0.6)">Collective</span>
+    </div>
+    <div style="position:absolute;left:32px;bottom:28px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;color:rgba(20,23,26,0.55)"><span data-intro-counter="">000</span> — 100</div>
+    <div style="position:absolute;right:32px;bottom:28px;font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(20,23,26,0.55)">Photo × Film</div>
+    <div style="position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(20,23,26,0.12)"><div data-intro-bar="" style="height:100%;width:0%;background:#244662"></div></div>
+  </div>
+  <nav data-screen-label="Nav" style="position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px 32px;color:#000000">
+    <a href="#top" style="display:flex;align-items:center;gap:12px">
+      <span style="font-family:'Noto Serif JP',serif;font-weight:600;font-size:24px;line-height:1;color:#000000">月</span>
+      <span style="font-weight:800;font-stretch:115%;letter-spacing:0.14em;font-size:15px;text-transform:uppercase;color:#000000">Getsu <span style="font-weight:400;letter-spacing:0.3em;color:#000000">Collective</span></span>
+    </a>
+    <div style="display:flex;gap:28px;font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:#000000">
+      <a href="#film" style="color:#000000">Film</a>
+      <a href="#index" style="color:#000000">Index</a>
+      <a href="#studio" style="color:#000000">Studio</a>
+      <a href="#fightwear" style="color:#000000">Fightwear</a>
+    </div>
+    <a href="#contact" style="font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.08em;border:1px solid rgba(0,0,0,0.4);border-radius:999px;padding:9px 18px;transition:all .25s;color:#000000" style-hover="background:#14171a;color:#ffffff">Book a project</a>
+  </nav>
+
+  <div data-stripscroll="" style="height:250svh;position:relative">
+  <header id="top" data-screen-label="Hero" style="height:100svh;position:sticky;top:0;z-index:1;display:flex;flex-direction:column;justify-content:flex-end">
+    <div style="position:absolute;top:0;left:0;right:0;bottom:120px;overflow:hidden">
+      <div style="position:absolute;inset:0">
+        <video data-hero-loop="" playsinline="" muted="" loop="" autoplay="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;background:#ffffff;opacity:0;display:none;transition:opacity 0.9s ease"></video>
+        <div data-hero-loop-placeholder="" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(20,23,26,0.45);background:rgba(20,23,26,0.03)"><span>Add clips to the film strip below — they'll loop here automatically</span></div>
+        <div style="position:absolute;left:0;right:0;bottom:0;height:45%;background:linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.55) 40%, #ffffff 85%);pointer-events:none"></div>
+      </div>
+      <div style="position:absolute;inset:0;display:flex;background:linear-gradient(to top, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.25) 45%, rgba(255,255,255,0.5) 100%);pointer-events:none"><div style="position:relative;flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:24px 32px;pointer-events:none">
+      <h1 data-reveal="0" style="margin:0;font-weight:850;font-stretch:125%;text-transform:uppercase;font-size:clamp(72px,15vw,260px);line-height:0.9;letter-spacing:-0.03em">getsu<sup style="font-size:0.18em;font-weight:600;vertical-align:1.9em;letter-spacing:0">®</sup></h1>
+      
+      <span data-reveal="2" style="margin-top:22px;font-family:'IBM Plex Mono',monospace;font-size:13px;text-transform:uppercase;letter-spacing:0.18em;color:rgba(20,23,26,0.75)">[ under the same moon 月 ]</span>
+    </div></div>
+    </div>
+    <div id="film" data-strip="" style="position:relative;border-top:1px dashed rgba(20,23,26,0.45);border-bottom:1px dashed rgba(20,23,26,0.45);display:flex;gap:72px;overflow-x:auto;padding:12px 32px;align-items:center">
+      <span style="flex:none;font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.18em;color:#244662">Film —</span>
+      <div data-clip-card="" data-clip-title="SHOPEE RAYA" data-clip-type="FESTIVE FILM" data-clip-desc="A 90-second brand film built around dawn light and quiet machinery — shot over two days on location." data-clip-video="work-01" style="display:flex;gap:18px;align-items:center;flex:none;cursor:pointer">
+        <div data-video-slot="work-01" style="position:relative;width:150px;height:88px;flex:none;cursor:pointer;overflow:hidden;border-radius:2px;background:#000">
+          <iframe src="https://www.youtube-nocookie.com/embed/Uqdlvm_WNRU?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=Uqdlvm_WNRU&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playsinline=1&amp;iv_load_policy=3" title="SHOPEE RAYA" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute;top:50%;left:50%;width:145%;height:145%;transform:translate(-50%,-50%);pointer-events:none"></iframe>
+          <div data-clip-hover="" style="position:absolute;inset:0;background:rgba(20,23,26,0.4);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .25s;pointer-events:none"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:0.06em;color:#fff">View details</span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:2px;text-align:left">
+          <span style="font-weight:800;font-stretch:115%;text-transform:uppercase;font-size:19px;letter-spacing:0.01em">SHOPEE RAYA</span>
+          <span style="font-family:'Noto Serif JP',serif;font-size:16px;text-transform:uppercase;letter-spacing:0.02em;color:rgba(20,23,26,0.8)">FESTIVE FILM</span>
+        </div>
+      </div>
+      <div data-clip-card="" data-clip-title="ALLIANZ 360" data-clip-type="Documentary" data-clip-desc="A quiet observational piece following overnight workers across the city." data-clip-video="work-03" style="display:flex;gap:18px;align-items:center;flex:none;cursor:pointer">
+        <div data-video-slot="work-03" style="position:relative;width:150px;height:88px;flex:none;cursor:pointer;overflow:hidden;border-radius:2px;background:#000">
+          <iframe src="https://www.youtube-nocookie.com/embed/OybUyqpSAF4?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=OybUyqpSAF4&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playsinline=1&amp;iv_load_policy=3" title="ALLIANZ 360" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute;top:50%;left:50%;width:145%;height:145%;transform:translate(-50%,-50%);pointer-events:none"></iframe>
+          <div data-clip-hover="" style="position:absolute;inset:0;background:rgba(20,23,26,0.4);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .25s;pointer-events:none"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:0.06em;color:#fff">View details</span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:2px;text-align:left">
+          <span style="font-weight:800;font-stretch:115%;text-transform:uppercase;font-size:19px;letter-spacing:0.01em">ALLIANZ 360</span>
+          <span style="font-family:'Noto Serif JP',serif;font-size:16px;text-transform:uppercase;letter-spacing:0.02em;color:rgba(20,23,26,0.8)">Documentary</span>
+        </div>
+      </div>
+      <div data-clip-card="" data-clip-title="CELINE" data-clip-type="BRANDING FILM" data-clip-desc="A short fiction piece set inside a nighttime street market on the edge of town." data-clip-video="work-04" style="display:flex;gap:18px;align-items:center;flex:none;cursor:pointer">
+        <div data-video-slot="work-04" style="position:relative;width:150px;height:88px;flex:none;cursor:pointer;overflow:hidden;border-radius:2px;background:#000">
+          <iframe src="https://www.youtube-nocookie.com/embed/yMPxW9soAe0?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=yMPxW9soAe0&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playsinline=1&amp;iv_load_policy=3" title="CELINE" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute;top:50%;left:50%;width:145%;height:145%;transform:translate(-50%,-50%);pointer-events:none"></iframe>
+          <div data-clip-hover="" style="position:absolute;inset:0;background:rgba(20,23,26,0.4);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .25s;pointer-events:none"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:0.06em;color:#fff">View details</span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:2px;text-align:left">
+          <span style="font-weight:800;font-stretch:115%;text-transform:uppercase;font-size:19px;letter-spacing:0.01em">CELINE</span>
+          <span style="font-family:'Noto Serif JP',serif;font-size:16px;text-transform:uppercase;letter-spacing:0.02em;color:rgba(20,23,26,0.8)">BRANDING FILM</span>
+        </div>
+      </div>
+      <div data-clip-card="" data-clip-title="VOLVO" data-clip-type="Commercial" data-clip-desc="A meditative commercial spot for a beverage client, shot entirely on and around a lake at first light." data-clip-video="work-05" style="display:flex;gap:18px;align-items:center;flex:none;cursor:pointer">
+        <div data-video-slot="work-05" style="position:relative;width:150px;height:88px;flex:none;cursor:pointer;overflow:hidden;border-radius:2px;background:#000">
+          <iframe src="https://www.youtube-nocookie.com/embed/TO_B-bdJSww?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=TO_B-bdJSww&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playsinline=1&amp;iv_load_policy=3" title="VOLVO" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute;top:50%;left:50%;width:145%;height:145%;transform:translate(-50%,-50%);pointer-events:none"></iframe>
+          <div data-clip-hover="" style="position:absolute;inset:0;background:rgba(20,23,26,0.4);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .25s;pointer-events:none"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:0.06em;color:#fff">View details</span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:2px;text-align:left">
+          <span style="font-weight:800;font-stretch:115%;text-transform:uppercase;font-size:19px;letter-spacing:0.01em">NUS MIND CENTRE</span>
+          <span style="font-family:'Noto Serif JP',serif;font-size:16px;text-transform:uppercase;letter-spacing:0.02em;color:rgba(20,23,26,0.8)">DOCUMENTARY</span>
+        </div>
+      </div>
+      <div data-clip-card="" data-clip-title="SUPPORT LOKAL" data-clip-type="DOCUMENTARY" data-clip-desc="A music video built from a single unbroken take, blooming from static into full motion." data-clip-video="film-05" style="display:flex;gap:18px;align-items:center;flex:none;cursor:pointer">
+        <div data-video-slot="film-05" style="position:relative;width:150px;height:88px;flex:none;cursor:pointer;overflow:hidden;border-radius:2px;background:#000">
+          <iframe src="https://www.youtube-nocookie.com/embed/bOOSf8kbgy0?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=bOOSf8kbgy0&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playsinline=1&amp;iv_load_policy=3" title="SUPPORT LOKAL" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute;top:50%;left:50%;width:145%;height:145%;transform:translate(-50%,-50%);pointer-events:none"></iframe>
+          <div data-clip-hover="" style="position:absolute;inset:0;background:rgba(20,23,26,0.4);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .25s;pointer-events:none"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:0.06em;color:#fff">View details</span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:2px;text-align:left">
+          <span style="font-weight:800;font-stretch:115%;text-transform:uppercase;font-size:19px;letter-spacing:0.01em">SUPPORT LOKAL</span>
+          <span style="font-family:'Noto Serif JP',serif;font-size:16px;text-transform:uppercase;letter-spacing:0.02em;color:rgba(20,23,26,0.8)">DOCUMENTARY</span>
+        </div>
+      </div>
+      <div data-clip-card="" data-clip-title="KENSINGTON" data-clip-type="COMMERCIAL" data-clip-desc="A two-part documentary following long-distance couples through a year of separation." data-clip-video="film-06" style="display:flex;gap:18px;align-items:center;flex:none;cursor:pointer">
+        <div data-video-slot="film-06" style="position:relative;width:150px;height:88px;flex:none;cursor:pointer;overflow:hidden;border-radius:2px;background:#000">
+          <iframe src="https://www.youtube-nocookie.com/embed/11k7FR8GciI?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=11k7FR8GciI&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playsinline=1&amp;iv_load_policy=3" title="KENSINGTON" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute;top:50%;left:50%;width:145%;height:145%;transform:translate(-50%,-50%);pointer-events:none"></iframe>
+          <div data-clip-hover="" style="position:absolute;inset:0;background:rgba(20,23,26,0.4);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .25s;pointer-events:none"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:0.06em;color:#fff">View details</span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:2px;text-align:left">
+          <span style="font-weight:800;font-stretch:115%;text-transform:uppercase;font-size:19px;letter-spacing:0.01em">KENSINGTON</span>
+          <span style="font-family:'Noto Serif JP',serif;font-size:16px;text-transform:uppercase;letter-spacing:0.02em;color:rgba(20,23,26,0.8)">COMMERCIAL</span>
+        </div>
+      </div>
+      <div data-clip-card="" data-clip-title="RESORTS WORLD" data-clip-type="Brand film" data-clip-desc="A brand film for an outdoor apparel client, shot across three wildfire-affected regions on their recovery." data-clip-video="film-07" style="display:flex;gap:18px;align-items:center;flex:none;cursor:pointer">
+        <div data-video-slot="film-07" style="position:relative;width:150px;height:88px;flex:none;cursor:pointer;overflow:hidden;border-radius:2px;background:#000">
+          <iframe src="https://www.youtube-nocookie.com/embed/LeeCMxPYbxo?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=LeeCMxPYbxo&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playsinline=1&amp;iv_load_policy=3" title="RESORTS WORLD" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute;top:50%;left:50%;width:145%;height:145%;transform:translate(-50%,-50%);pointer-events:none"></iframe>
+          <div data-clip-hover="" style="position:absolute;inset:0;background:rgba(20,23,26,0.4);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .25s;pointer-events:none"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:0.06em;color:#fff">View details</span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:2px;text-align:left">
+          <span style="font-weight:800;font-stretch:115%;text-transform:uppercase;font-size:19px;letter-spacing:0.01em">RESORTS WORLD</span>
+          <span style="font-family:'Noto Serif JP',serif;font-size:16px;text-transform:uppercase;letter-spacing:0.02em;color:rgba(20,23,26,0.8)">Brand film</span>
+        </div>
+      </div>
+      <div data-clip-card="" data-clip-title="BANKING CIRCLE" data-clip-type="MOTION GRAPHICS" data-clip-desc="A short documentary tracking a rural census team through the coldest month of the year." data-clip-video="film-08" style="display:flex;gap:18px;align-items:center;flex:none;cursor:pointer">
+        <div data-video-slot="film-08" style="position:relative;width:150px;height:88px;flex:none;cursor:pointer;overflow:hidden;border-radius:2px;background:#000">
+          <iframe src="https://www.youtube-nocookie.com/embed/p20ehbHDUro?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=p20ehbHDUro&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playsinline=1&amp;iv_load_policy=3" title="BANKING CIRCLE" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute;top:50%;left:50%;width:145%;height:145%;transform:translate(-50%,-50%);pointer-events:none"></iframe>
+          <div data-clip-hover="" style="position:absolute;inset:0;background:rgba(20,23,26,0.4);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .25s;pointer-events:none"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:0.06em;color:#fff">View details</span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:2px;text-align:left">
+          <span style="font-weight:800;font-stretch:115%;text-transform:uppercase;font-size:19px;letter-spacing:0.01em">BANKING CIRCLE</span>
+          <span style="font-family:'Noto Serif JP',serif;font-size:16px;text-transform:uppercase;letter-spacing:0.02em;color:rgba(20,23,26,0.8)">MOTION GRAPHICS</span>
+        </div>
+      </div>
+      <div data-clip-card="" data-clip-title="TOKEN 2049" data-clip-type="EVENT HIGHLIGHTS" data-clip-desc="A motion campaign for Getsu Apparel's second drop, shot on our own crew and cast." data-clip-video="film-09" style="display:flex;gap:18px;align-items:center;flex:none;cursor:pointer">
+        <div data-video-slot="film-09" style="position:relative;width:150px;height:88px;flex:none;cursor:pointer;overflow:hidden;border-radius:2px;background:#000">
+          <iframe src="https://www.youtube-nocookie.com/embed/qbeUbyl62TA?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=qbeUbyl62TA&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playsinline=1&amp;iv_load_policy=3" title="TOKEN 2049" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute;top:50%;left:50%;width:145%;height:145%;transform:translate(-50%,-50%);pointer-events:none"></iframe>
+          <div data-clip-hover="" style="position:absolute;inset:0;background:rgba(20,23,26,0.4);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .25s;pointer-events:none"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:0.06em;color:#fff">View details</span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:2px;text-align:left">
+          <span style="font-weight:800;font-stretch:115%;text-transform:uppercase;font-size:19px;letter-spacing:0.01em">TOKEN 2049</span>
+          <span style="font-family:'Noto Serif JP',serif;font-size:16px;text-transform:uppercase;letter-spacing:0.02em;color:rgba(20,23,26,0.8)">EVENT HIGHLIGHTS</span>
+        </div>
+      </div>
+    </div>
+    
+  </header>
+  </div>
+
+  <main style="position:relative;z-index:2;background:#ffffff;box-shadow:0 -30px 60px rgba(0,0,0,0.45)">
+  <section id="index" data-screen-label="Project index" style="padding:110px 32px 60px">
+    <div data-reveal="0" style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:28px">
+      <h2 style="margin:0;font-weight:850;font-stretch:125%;text-transform:uppercase;font-size:clamp(40px,6.5vw,104px);line-height:0.9;letter-spacing:-0.02em">Index <sup style="font-family:'IBM Plex Mono',monospace;font-weight:400;font-size:0.22em;letter-spacing:0.1em;color:#244662;vertical-align:super">(09)</sup></h2>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(20,23,26,0.55)">Everything on the film strip above</span>
+    </div>
+    <div style="display:flex;flex-direction:column;border-top:1px solid rgba(20,23,26,0.15)">
+      <div data-reveal="0" data-idxrow="" data-clip-card="" data-clip-title="SHOPEE RAYA" data-clip-type="FESTIVE FILM" data-clip-video="work-01" style="display:grid;grid-template-columns:64px 1fr 150px 200px 40px;align-items:center;gap:16px;padding:20px 12px;border-bottom:1px solid rgba(20,23,26,0.15);transition:background .2s,color .2s;cursor:pointer" style-hover="background:#14171a;color:#ffffff">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:0.5">01</span>
+        <span style="font-weight:750;font-stretch:118%;text-transform:uppercase;font-size:clamp(20px,2.6vw,34px);letter-spacing:-0.01em">SHOPEE RAYA</span>
+        <span data-idxthumb="" style="width:150px;height:64px;display:block"><image-slot id="idx-01" shape="rect" radius="2" placeholder="Still"></image-slot></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;opacity:0.6">FESTIVE FILM</span>
+        <span style="font-size:20px;justify-self:end">↗</span>
+      </div>
+      <div data-reveal="0" data-idxrow="" data-clip-card="" data-clip-title="ALLIANZ 360" data-clip-type="Documentary" data-clip-video="work-03" style="display:grid;grid-template-columns:64px 1fr 150px 200px 40px;align-items:center;gap:16px;padding:20px 12px;border-bottom:1px solid rgba(20,23,26,0.15);transition:background .2s,color .2s;cursor:pointer" style-hover="background:#14171a;color:#ffffff">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:0.5">02</span>
+        <span style="font-weight:750;font-stretch:118%;text-transform:uppercase;font-size:clamp(20px,2.6vw,34px);letter-spacing:-0.01em">ALLIANZ 360</span>
+        <span data-idxthumb="" style="width:150px;height:64px;display:block"><image-slot id="idx-02" shape="rect" radius="2" placeholder="Still"></image-slot></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;opacity:0.6">Documentary</span>
+        <span style="font-size:20px;justify-self:end">↗</span>
+      </div>
+      <div data-reveal="0" data-idxrow="" data-clip-card="" data-clip-title="CELINE" data-clip-type="BRANDING FILM" data-clip-video="work-04" style="display:grid;grid-template-columns:64px 1fr 150px 200px 40px;align-items:center;gap:16px;padding:20px 12px;border-bottom:1px solid rgba(20,23,26,0.15);transition:background .2s,color .2s;cursor:pointer" style-hover="background:#14171a;color:#ffffff">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:0.5">03</span>
+        <span style="font-weight:750;font-stretch:118%;text-transform:uppercase;font-size:clamp(20px,2.6vw,34px);letter-spacing:-0.01em">CELINE</span>
+        <span data-idxthumb="" style="width:150px;height:64px;display:block"><image-slot id="idx-03" shape="rect" radius="2" placeholder="Still"></image-slot></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;opacity:0.6">BRANDING FILM</span>
+        <span style="font-size:20px;justify-self:end">↗</span>
+      </div>
+      <div data-reveal="0" data-idxrow="" data-clip-card="" data-clip-title="VOLVO" data-clip-type="Commercial" data-clip-video="work-05" style="display:grid;grid-template-columns:64px 1fr 150px 200px 40px;align-items:center;gap:16px;padding:20px 12px;border-bottom:1px solid rgba(20,23,26,0.15);transition:background .2s,color .2s;cursor:pointer" style-hover="background:#14171a;color:#ffffff">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:0.5">04</span>
+        <span style="font-weight:750;font-stretch:118%;text-transform:uppercase;font-size:clamp(20px,2.6vw,34px);letter-spacing:-0.01em">VOLVO</span>
+        <span data-idxthumb="" style="width:150px;height:64px;display:block"><image-slot id="idx-04" shape="rect" radius="2" placeholder="Still"></image-slot></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;opacity:0.6">Commercial</span>
+        <span style="font-size:20px;justify-self:end">↗</span>
+      </div>
+      <div data-reveal="0" data-idxrow="" data-clip-card="" data-clip-title="SUPPORT LOKAL" data-clip-type="DOCUMENTARY" data-clip-video="film-05" style="display:grid;grid-template-columns:64px 1fr 150px 200px 40px;align-items:center;gap:16px;padding:20px 12px;border-bottom:1px solid rgba(20,23,26,0.15);transition:background .2s,color .2s;cursor:pointer" style-hover="background:#14171a;color:#ffffff">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:0.5">05</span>
+        <span style="font-weight:750;font-stretch:118%;text-transform:uppercase;font-size:clamp(20px,2.6vw,34px);letter-spacing:-0.01em">SUPPORT LOKAL</span>
+        <span data-idxthumb="" style="width:150px;height:64px;display:block"><image-slot id="idx-05" shape="rect" radius="2" placeholder="Still"></image-slot></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;opacity:0.6">DOCUMENTARY</span>
+        <span style="font-size:20px;justify-self:end">↗</span>
+      </div>
+      <div data-reveal="0" data-idxrow="" data-clip-card="" data-clip-title="KENSINGTON" data-clip-type="COMMERCIAL" data-clip-video="film-06" style="display:grid;grid-template-columns:64px 1fr 150px 200px 40px;align-items:center;gap:16px;padding:20px 12px;border-bottom:1px solid rgba(20,23,26,0.15);transition:background .2s,color .2s;cursor:pointer" style-hover="background:#14171a;color:#ffffff">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:0.5">06</span>
+        <span style="font-weight:750;font-stretch:118%;text-transform:uppercase;font-size:clamp(20px,2.6vw,34px);letter-spacing:-0.01em">KENSINGTON</span>
+        <span data-idxthumb="" style="width:150px;height:64px;display:block"><image-slot id="idx-06" shape="rect" radius="2" placeholder="Still"></image-slot></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;opacity:0.6">COMMERCIAL</span>
+        <span style="font-size:20px;justify-self:end">↗</span>
+      </div>
+      <div data-reveal="0" data-idxrow="" data-clip-card="" data-clip-title="RESORTS WORLD" data-clip-type="Brand film" data-clip-video="film-07" style="display:grid;grid-template-columns:64px 1fr 150px 200px 40px;align-items:center;gap:16px;padding:20px 12px;border-bottom:1px solid rgba(20,23,26,0.15);transition:background .2s,color .2s;cursor:pointer" style-hover="background:#14171a;color:#ffffff">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:0.5">07</span>
+        <span style="font-weight:750;font-stretch:118%;text-transform:uppercase;font-size:clamp(20px,2.6vw,34px);letter-spacing:-0.01em">RESORTS WORLD</span>
+        <span data-idxthumb="" style="width:150px;height:64px;display:block"><image-slot id="idx-07" shape="rect" radius="2" placeholder="Still"></image-slot></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;opacity:0.6">Brand film</span>
+        <span style="font-size:20px;justify-self:end">↗</span>
+      </div>
+      <div data-reveal="0" data-idxrow="" data-clip-card="" data-clip-title="BANKING CIRCLE" data-clip-type="MOTION GRAPHICS" data-clip-video="film-08" style="display:grid;grid-template-columns:64px 1fr 150px 200px 40px;align-items:center;gap:16px;padding:20px 12px;border-bottom:1px solid rgba(20,23,26,0.15);transition:background .2s,color .2s;cursor:pointer" style-hover="background:#14171a;color:#ffffff">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:0.5">08</span>
+        <span style="font-weight:750;font-stretch:118%;text-transform:uppercase;font-size:clamp(20px,2.6vw,34px);letter-spacing:-0.01em">BANKING CIRCLE</span>
+        <span data-idxthumb="" style="width:150px;height:64px;display:block"><image-slot id="idx-08" shape="rect" radius="2" placeholder="Still"></image-slot></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;opacity:0.6">MOTION GRAPHICS</span>
+        <span style="font-size:20px;justify-self:end">↗</span>
+      </div>
+      <div data-reveal="0" data-idxrow="" data-clip-card="" data-clip-title="TOKEN 2049" data-clip-type="EVENT HIGHLIGHTS" data-clip-video="film-09" style="display:grid;grid-template-columns:64px 1fr 150px 200px 40px;align-items:center;gap:16px;padding:20px 12px;border-bottom:1px solid rgba(20,23,26,0.15);transition:background .2s,color .2s;cursor:pointer" style-hover="background:#14171a;color:#ffffff">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:0.5">09</span>
+        <span style="font-weight:750;font-stretch:118%;text-transform:uppercase;font-size:clamp(20px,2.6vw,34px);letter-spacing:-0.01em">TOKEN 2049</span>
+        <span data-idxthumb="" style="width:150px;height:64px;display:block"><image-slot id="idx-09" shape="rect" radius="2" placeholder="Still"></image-slot></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;opacity:0.6">EVENT HIGHLIGHTS</span>
+        <span style="font-size:20px;justify-self:end">↗</span>
+      </div>
+    </div>
+  </section>
+  <section id="studio" data-screen-label="Studio &amp; process" style="padding:110px 32px;border-top:1px solid rgba(20,23,26,0.12)">
+    <div style="display:grid;grid-template-columns:minmax(280px,5fr) 7fr;gap:48px;align-items:start">
+      <div data-reveal="0" style="position:sticky;top:100px">
+        <div style="aspect-ratio:4/5;overflow:hidden;border-radius:4px">
+          <image-slot id="studio-portrait" shape="rect" placeholder="Collective portrait / behind-the-scenes still"></image-slot>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding-top:14px;font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(20,23,26,0.5)">
+          <span>The collective, on set</span>
+          <span>月</span>
+        </div>
+      </div>
+      <div>
+        <h2 data-reveal="0" style="margin:0 0 28px;font-weight:850;font-stretch:125%;text-transform:uppercase;font-size:clamp(36px,5vw,80px);line-height:0.92;letter-spacing:-0.02em">Under the<br>same moon<span style="color:#244662">.</span></h2>
+        <p data-reveal="1" style="margin:0 0 20px;font-size:clamp(18px,1.6vw,24px);line-height:1.5;color:rgba(20,23,26,0.85);max-width:640px;text-wrap:pretty">Getsu (月) means moon. We're a small collective of photographers and filmmakers who believe the best work happens between disciplines — a documentary eye on a brand film, a cinematographer's patience on a stills day.</p>
+        <p data-reveal="1" style="margin:0 0 48px;font-size:16px;line-height:1.6;color:rgba(20,23,26,0.6);max-width:560px;text-wrap:pretty">The same sensibility runs through our clothing line: quiet, considered pieces made in small runs, photographed by us, worn on our sets.</p>
+        <div data-reveal="2" style="display:flex;flex-direction:column;border-top:1px solid rgba(20,23,26,0.15)">
+          <div style="display:grid;grid-template-columns:56px 200px 1fr;gap:16px;padding:22px 0;border-bottom:1px solid rgba(20,23,26,0.15);align-items:baseline">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#244662">01</span>
+            <span style="font-weight:750;font-stretch:115%;text-transform:uppercase;font-size:18px">Listen</span>
+            <span style="font-size:15px;line-height:1.55;color:rgba(20,23,26,0.65)">Every project starts with a conversation, not a treatment. We learn your audience, your constraints, your ambition.</span>
+          </div>
+          <div style="display:grid;grid-template-columns:56px 200px 1fr;gap:16px;padding:22px 0;border-bottom:1px solid rgba(20,23,26,0.15);align-items:baseline">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#244662">02</span>
+            <span style="font-weight:750;font-stretch:115%;text-transform:uppercase;font-size:18px">Direct</span>
+            <span style="font-size:15px;line-height:1.55;color:rgba(20,23,26,0.65)">Treatment, boards, casting, location. You see exactly what we'll shoot before a single frame rolls.</span>
+          </div>
+          <div style="display:grid;grid-template-columns:56px 200px 1fr;gap:16px;padding:22px 0;border-bottom:1px solid rgba(20,23,26,0.15);align-items:baseline">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#244662">03</span>
+            <span style="font-weight:750;font-stretch:115%;text-transform:uppercase;font-size:18px">Craft</span>
+            <span style="font-size:15px;line-height:1.55;color:rgba(20,23,26,0.65)">Shoot days run photo and film in parallel — one crew, one look, twice the material.</span>
+          </div>
+          <div style="display:grid;grid-template-columns:56px 200px 1fr;gap:16px;padding:22px 0;border-bottom:1px solid rgba(20,23,26,0.15);align-items:baseline">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#244662">04</span>
+            <span style="font-weight:750;font-stretch:115%;text-transform:uppercase;font-size:18px">Deliver</span>
+            <span style="font-size:15px;line-height:1.55;color:rgba(20,23,26,0.65)">Edit, grade, and every cut-down your channels need. Delivered on time, organised, ready to publish.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fightwear" data-screen-label="Fightwear" style="position:relative;min-height:92svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;overflow:hidden;border-top:1px solid rgba(20,23,26,0.12);padding:100px 32px">
+    <div style="position:absolute;inset:0">
+      <div data-video-slot="fightwear-01" style="position:relative;width:100%;height:100%">
+        <video data-video-el="" playsinline="" muted="" loop="" autoplay="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none"></video>
+        <div data-video-placeholder="" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(20,23,26,0.45);background:rgba(20,23,26,0.03)"><span>Drop a fightwear background clip</span></div>
+        <input data-video-input="" type="file" accept="video/*" style="position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%">
+      </div>
+      <div style="position:absolute;inset:0;background:rgba(255,255,255,0.72);pointer-events:none"></div>
+    </div>
+    <div style="position:relative;pointer-events:none;display:flex;flex-direction:column;align-items:center;flex:1;justify-content:center">
+      <span data-reveal="0" style="font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.24em;color:#244662">月 Fightwear</span>
+      <h2 data-reveal="0" style="margin:18px 0 0;font-weight:850;font-stretch:125%;text-transform:uppercase;font-size:clamp(52px,9.5vw,150px);line-height:0.88;letter-spacing:-0.025em">Getsu<br><span style="color:transparent;-webkit-text-stroke:1.5px #14171a">Fight&nbsp;Co.</span></h2>
+      <p data-reveal="1" style="margin:26px 0 0;max-width:520px;font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(15px,1.4vw,19px);line-height:1.6;color:rgba(20,23,26,0.85);text-wrap:pretty">Fightwear built by the people who film the fight. Cut for the gym, the ring and the walkout — tested on our own shoots before it ever touches a shelf.</p>
+    </div>
+    <div style="position:relative;pointer-events:none;margin-top:32px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;text-transform:uppercase;letter-spacing:0.3em;color:#244662">Coming soon</span>
+    </div>
+  </section>
+
+  <div data-clip-modal="" style="position:fixed;inset:0;z-index:80;display:none;align-items:center;justify-content:center;background:rgba(20,23,26,0.75);padding:32px">
+    <div style="background:#ffffff;max-width:720px;width:100%;border-radius:6px;overflow:hidden;position:relative">
+      <button data-clip-modal-close="" aria-label="Close" style="position:absolute;top:14px;right:14px;background:rgba(20,23,26,0.06);border:none;border-radius:50%;width:32px;height:32px;font-size:16px;cursor:pointer;color:#14171a;z-index:1">×</button>
+      <div data-clip-modal-media="" style="aspect-ratio:16/9;background:#14171a"></div>
+      <div style="padding:28px 32px 32px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:10px;flex-wrap:wrap">
+          <span data-clip-modal-title="" style="font-weight:800;font-stretch:115%;text-transform:uppercase;font-size:26px;letter-spacing:0.01em"></span>
+          <span data-clip-modal-type="" style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:#244662"></span>
+        </div>
+        <p data-clip-modal-desc="" style="margin:0;font-size:15px;line-height:1.6;color:rgba(20,23,26,0.7)"></p>
+      </div>
+    </div>
+  </div>
+
+  <footer id="contact" data-screen-label="Contact" style="min-height:92svh;display:flex;flex-direction:column;justify-content:center;padding:80px 32px 32px;border-top:1px solid rgba(20,23,26,0.12);position:relative;overflow:hidden">
+    <span aria-hidden="true" style="position:absolute;right:-40px;top:-60px;font-family:'Noto Serif JP',serif;font-weight:600;font-size:420px;line-height:1;color:rgba(20,23,26,0.05);pointer-events:none;user-select:none">月</span>
+    <span data-reveal="0" style="font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(20,23,26,0.55)">Have a project in mind?</span>
+    <h2 data-reveal="0" style="margin:16px 0 40px;font-weight:850;font-stretch:125%;text-transform:uppercase;font-size:clamp(52px,10vw,168px);line-height:0.88;letter-spacing:-0.025em;position:relative">Let's make<br>it <em style="font-style:italic;font-weight:400;font-stretch:80%;text-transform:none">together</em><span style="color:#244662">.</span></h2>
+    <div data-reveal="1" style="display:flex;justify-content:flex-end;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:90px">
+      <div style="display:flex;gap:24px;font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.08em">
+        <a href="#top">Instagram ↗</a>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;border-top:1px solid rgba(20,23,26,0.12);padding-top:24px">
+      <img src="uploads/assets-1786679404483-ktc6.png" alt="Getsu Collective" style="height:56px;mix-blend-mode:screen">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(20,23,26,0.4)">© 2026 Getsu Collective — Photo × Film × Apparel</span>
+      <a href="#top" style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(20,23,26,0.55)">Back to top ↑</a>
+    </div>
+  </footer>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;reduceMotion&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: false, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Motion&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    const overlay = document.querySelector('[data-intro-overlay]');
+    this.setupNavHide();
+    this.setupVideoSlots();
+    this.setupClipDetails();
+    this.setupFilmScroll();
+    this.setupHScroll();
+    if (this.props.reduceMotion) {
+      if (overlay) overlay.style.display = 'none';
+      return;
+    }
+    // Hide reveal targets before the curtain lifts so nothing flashes
+    this._revealEls = Array.from(document.querySelectorAll('[data-reveal]'));
+    this._revealEls.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(26px)';
+    });
+    this.runIntro(overlay).then(() => this.setupReveals());
+  }
+  runIntro(overlay) {
+    return new Promise(resolve => {
+      if (!overlay) return resolve();
+      document.body.style.overflow = 'hidden';
+      const ease = 'cubic-bezier(.2,.8,.2,1)';
+      const glyph = overlay.querySelector('[data-intro-glyph]');
+      const letters = overlay.querySelectorAll('[data-intro-letter]');
+      const sub = overlay.querySelector('[data-intro-sub]');
+      const counter = overlay.querySelector('[data-intro-counter]');
+      const bar = overlay.querySelector('[data-intro-bar]');
+      // Counter + progress bar: 0 -> 100 over 1.5s
+      const t0 = performance.now(), dur = 1500;
+      const tick = now => {
+        const p = Math.min(1, (now - t0) / dur);
+        const eased = 1 - Math.pow(1 - p, 3);
+        const n = Math.round(eased * 100);
+        if (counter) counter.textContent = String(n).padStart(3, '0');
+        if (bar) bar.style.width = (eased * 100) + '%';
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+      // Letters rise, staggered
+      letters.forEach((el, i) => {
+        el.style.transition = 'transform .8s ' + ease;
+        el.style.transitionDelay = (150 + i * 70) + 'ms';
+        requestAnimationFrame(() => { el.style.transform = 'translateY(0)'; });
+      });
+      if (sub) {
+        sub.style.transition = 'transform .7s ' + ease + ' .65s';
+        requestAnimationFrame(() => { sub.style.transform = 'translateY(0)'; });
+      }
+      if (glyph) {
+        glyph.style.transition = 'opacity .9s ' + ease + ' .1s, transform .9s ' + ease + ' .1s';
+        requestAnimationFrame(() => { glyph.style.opacity = '1'; glyph.style.transform = 'scale(1)'; });
+      }
+      // Curtain lift after the count completes
+      setTimeout(() => {
+        overlay.style.transition = 'transform .9s cubic-bezier(.76,0,.24,1)';
+        overlay.style.transform = 'translateY(-100%)';
+        setTimeout(() => {
+          overlay.style.display = 'none';
+          document.body.style.overflow = '';
+          resolve();
+        }, 900);
+      }, 1900);
+    });
+  }
+  setupReveals() {
+    let pending = (this._revealEls || []).slice();
+    pending.forEach(el => {
+      el.style.transition = 'opacity .7s cubic-bezier(.2,.8,.2,1), transform .7s cubic-bezier(.2,.8,.2,1)';
+      el.style.transitionDelay = (parseInt(el.getAttribute('data-reveal') || '0', 10) * 110) + 'ms';
+    });
+    let raf = 0;
+    const check = () => {
+      const vh = window.innerHeight;
+      pending = pending.filter(el => {
+        const r = el.getBoundingClientRect();
+        if (r.top < vh * 0.94 && r.bottom > 0) {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+          return false;
+        }
+        return true;
+      });
+      if (pending.length) raf = requestAnimationFrame(check);
+    };
+    raf = requestAnimationFrame(check);
+    this._revealCleanup = () => cancelAnimationFrame(raf);
+  }
+  forceMuted(video) {
+    if (!video) return;
+    video.muted = true;
+    video.volume = 0;
+    video.setAttribute('muted', '');
+    video.addEventListener('volumechange', () => {
+      if (!video.muted || video.volume !== 0) {
+        video.muted = true;
+        video.volume = 0;
+      }
+    });
+  }
+  openClipsDB() {
+    return new Promise((resolve, reject) => {
+      const req = indexedDB.open('getsu-clips-db', 1);
+      req.onupgradeneeded = () => { req.result.createObjectStore('clips'); };
+      req.onsuccess = () => resolve(req.result);
+      req.onerror = () => reject(req.error);
+    });
+  }
+  dbGet(db, key) {
+    return new Promise(resolve => {
+      const tx = db.transaction('clips', 'readonly').objectStore('clips').get(key);
+      tx.onsuccess = () => resolve(tx.result || null);
+      tx.onerror = () => resolve(null);
+    });
+  }
+  dbSet(db, key, blob) {
+    const tx = db.transaction('clips', 'readwrite');
+    tx.objectStore('clips').put(blob, key);
+  }
+  async setupVideoSlots() {
+    const YT_IDS = ['Uqdlvm_WNRU','OybUyqpSAF4','yMPxW9soAe0','TO_B-bdJSww','bOOSf8kbgy0','11k7FR8GciI','LeeCMxPYbxo','p20ehbHDUro','qbeUbyl62TA'];
+    const heroVideo = document.querySelector('[data-hero-loop]');
+    const heroPlaceholder = document.querySelector('[data-hero-loop-placeholder]');
+    const embedSrc = id => 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&mute=1&loop=1&playlist=' + id + '&controls=0&modestbranding=1&rel=0&playsinline=1&iv_load_policy=3';
+    if (heroVideo && YT_IDS.length) {
+      const HERO_OPACITY = 0.4;
+      let heroIdx = 0;
+      const hero = document.createElement('iframe');
+      hero.setAttribute('frameborder', '0');
+      hero.setAttribute('allow', 'autoplay; encrypted-media');
+      hero.style.position = 'absolute';
+      hero.style.top = '50%';
+      hero.style.left = '50%';
+      hero.style.width = '130%';
+      hero.style.height = '130%';
+      hero.style.transform = 'translate(-50%,-50%)';
+      hero.style.opacity = '0';
+      hero.style.transition = 'opacity 0.9s ease';
+      hero.style.pointerEvents = 'none';
+      hero.src = embedSrc(YT_IDS[0]);
+      heroVideo.replaceWith(hero);
+      if (heroPlaceholder) heroPlaceholder.style.display = 'none';
+      requestAnimationFrame(() => { hero.style.opacity = String(HERO_OPACITY); });
+      this._heroInterval = setInterval(() => {
+        hero.style.opacity = '0';
+        setTimeout(() => {
+          heroIdx = (heroIdx + 1) % YT_IDS.length;
+          hero.src = embedSrc(YT_IDS[heroIdx]);
+          hero.style.opacity = String(HERO_OPACITY);
+        }, 900);
+      }, 5900);
+    }
+    let db = null;
+    try { db = await this.openClipsDB(); } catch (e) { db = null; }
+    const slot = document.querySelector('[data-video-slot="fightwear-01"]');
+    if (slot) {
+      const video = slot.querySelector('[data-video-el]');
+      const placeholder = slot.querySelector('[data-video-placeholder]');
+      const input = slot.querySelector('[data-video-input]');
+      const applyBlob = (blob, persist) => {
+        const url = URL.createObjectURL(blob);
+        video.src = url;
+        this.forceMuted(video);
+        video.style.display = 'block';
+        placeholder.style.display = 'none';
+        video.play().catch(() => {});
+        if (persist && db) this.dbSet(db, 'fightwear-01', blob);
+      };
+      input.addEventListener('change', () => { const f = input.files && input.files[0]; if (f) applyBlob(f, true); });
+      slot.addEventListener('dragover', e => { e.preventDefault(); slot.style.opacity = '0.85'; });
+      slot.addEventListener('dragleave', () => { slot.style.opacity = '1'; });
+      slot.addEventListener('drop', e => {
+        e.preventDefault();
+        slot.style.opacity = '1';
+        const file = e.dataTransfer.files && e.dataTransfer.files[0];
+        if (file && file.type.startsWith('video/')) applyBlob(file, true);
+      });
+      if (db) {
+        const saved = await this.dbGet(db, 'fightwear-01');
+        if (saved) applyBlob(saved, false);
+      }
+    }
+  }
+  setupClipDetails() {
+    const modal = document.querySelector('[data-clip-modal]');
+    if (!modal) return;
+    const YT_MAP = { 'work-01':'Uqdlvm_WNRU','work-03':'OybUyqpSAF4','work-04':'yMPxW9soAe0','work-05':'TO_B-bdJSww','film-05':'bOOSf8kbgy0','film-06':'11k7FR8GciI','film-07':'LeeCMxPYbxo','film-08':'p20ehbHDUro','film-09':'qbeUbyl62TA' };
+    const media = modal.querySelector('[data-clip-modal-media]');
+    const titleEl = modal.querySelector('[data-clip-modal-title]');
+    const typeEl = modal.querySelector('[data-clip-modal-type]');
+    const descEl = modal.querySelector('[data-clip-modal-desc]');
+    const closeModal = () => {
+      modal.style.display = 'none';
+      media.innerHTML = '';
+    };
+    modal.querySelector('[data-clip-modal-close]').addEventListener('click', closeModal);
+    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+    document.querySelectorAll('[data-clip-card]').forEach(card => {
+      card.addEventListener('click', e => {
+        if (e.target.closest('[data-video-input]')) return;
+        titleEl.textContent = card.getAttribute('data-clip-title') || '';
+        typeEl.textContent = card.getAttribute('data-clip-type') || '';
+        descEl.textContent = card.getAttribute('data-clip-desc') || '';
+        const clipKey = card.getAttribute('data-clip-video');
+        const ytId = YT_MAP[clipKey];
+        media.innerHTML = '';
+        if (ytId) {
+          const iframe = document.createElement('iframe');
+          iframe.src = 'https://www.youtube-nocookie.com/embed/' + ytId + '?autoplay=1&mute=1&controls=1&rel=0&playsinline=1';
+          iframe.setAttribute('frameborder', '0');
+          iframe.setAttribute('allow', 'autoplay; encrypted-media; fullscreen');
+          iframe.setAttribute('allowfullscreen', '');
+          iframe.style.width = '100%';
+          iframe.style.height = '100%';
+          iframe.style.display = 'block';
+          media.appendChild(iframe);
+        }
+        modal.style.display = 'flex';
+      });
+    });
+  }
+  setupFilmScroll() {
+    const lerp = this.props.reduceMotion ? 1 : 0.16;
+    const cleanups = [];
+    document.querySelectorAll('[data-stripscroll]').forEach(wrap => {
+      const strip = wrap.querySelector('[data-strip]');
+      if (!strip) return;
+      let target = 0, current = 0, raf = 0, dragging = false;
+      strip.addEventListener('pointerdown', () => { dragging = true; });
+      window.addEventListener('pointerup', () => { dragging = false; });
+      const update = () => {
+        const vh = window.innerHeight;
+        const total = wrap.offsetHeight - vh;
+        const p = total > 0 ? Math.min(1, Math.max(0, -wrap.getBoundingClientRect().top / total)) : 0;
+        target = p * Math.max(0, strip.scrollWidth - strip.clientWidth);
+      };
+      const loop = () => {
+        if (!dragging) {
+          current += (target - current) * lerp;
+          if (Math.abs(target - current) < 0.5) current = target;
+          strip.scrollLeft = current;
+        } else {
+          current = strip.scrollLeft;
+        }
+        raf = requestAnimationFrame(loop);
+      };
+      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+      update();
+      loop();
+      cleanups.push(() => {
+        cancelAnimationFrame(raf);
+        window.removeEventListener('scroll', update);
+        window.removeEventListener('resize', update);
+      });
+    });
+    this._filmCleanup = () => cleanups.forEach(fn => fn());
+  }
+  setupNavHide() {
+    const nav = document.querySelector('nav');
+    if (!nav) return;
+    nav.style.transition = 'transform .45s cubic-bezier(.2,.8,.2,1)';
+    const getY = () => -document.body.getBoundingClientRect().top;
+    let last = getY(), raf = 0;
+    const tick = () => {
+      const y = getY();
+      const delta = y - last;
+      if (y < 80 || delta < -4) nav.style.transform = 'translateY(0)';
+      else if (delta > 4) nav.style.transform = 'translateY(-110%)';
+      if (Math.abs(delta) > 0.5) last = y;
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    this._navCleanup = () => cancelAnimationFrame(raf);
+  }
+  setupHScroll() {
+    const wrap = document.querySelector('[data-hscroll]');
+    const track = document.querySelector('[data-htrack]');
+    const bar = document.querySelector('[data-hprogress]');
+    if (!wrap || !track) return;
+    let target = 0, current = 0, raf = 0;
+    const update = () => {
+      const vh = window.innerHeight;
+      const rect = wrap.getBoundingClientRect();
+      const total = wrap.offsetHeight - vh;
+      const p = total > 0 ? Math.min(1, Math.max(0, -rect.top / total)) : 0;
+      target = p * Math.max(0, track.scrollWidth - window.innerWidth);
+      if (bar) bar.style.width = (p * 100) + '%';
+    };
+    const lerp = this.props.reduceMotion ? 1 : 0.14;
+    const loop = () => {
+      current += (target - current) * lerp;
+      if (Math.abs(target - current) < 0.5) current = target;
+      track.style.transform = 'translate3d(' + (-current) + 'px,0,0)';
+      raf = requestAnimationFrame(loop);
+    };
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+    loop();
+    this._hcleanup = () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener('scroll', update);
+      window.removeEventListener('resize', update);
+    };
+  }
+  componentWillUnmount() {
+    if (this._revealCleanup) this._revealCleanup();
+    if (this._hcleanup) this._hcleanup();
+    if (this._navCleanup) this._navCleanup();
+    if (this._filmCleanup) this._filmCleanup();
+    if (this._heroInterval) clearInterval(this._heroInterval);
+  }
+}
+</script>
+<script>
+(function () {
+  function coverFilmClips() {
+    document.querySelectorAll('[data-video-slot]').forEach(function (slot) {
+      var key = slot.getAttribute('data-video-slot') || '';
+      if (key === 'fightwear-01') return; // this one's the upload slot, skip it
+      var iframe = slot.querySelector('iframe');
+      if (!iframe) return;
+      var cover = document.createElement('div');
+      cover.style.cssText =
+        'position:absolute;inset:0;background:#000;transition:opacity .5s ease;pointer-events:none;z-index:1;';
+      slot.style.position = slot.style.position || 'relative';
+      slot.appendChild(cover);
+      setTimeout(function () {
+        cover.style.opacity = '0';
+        setTimeout(function () { cover.remove(); }, 550);
+      }, 900); // increase this if the flash still shows on slower connections
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', coverFilmClips);
+  } else {
+    coverFilmClips();
+  }
+})();
+</script>
+</body>
+</html>

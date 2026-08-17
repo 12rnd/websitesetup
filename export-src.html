@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+<head>
+<template id="__bundler_thumbnail" data-bg-color="#0e0e0d">
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+<rect width="1200" height="800" fill="#0e0e0d"/>
+<circle cx="600" cy="360" r="150" fill="#f0ece3"/>
+<circle cx="545" cy="320" r="118" fill="#0e0e0d"/>
+<text x="600" y="620" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="64" letter-spacing="18" fill="#f0ece3">GETSU</text>
+</svg>
+</template>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Noto+Serif+JP:wght@500;600&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #0e0e0d; color: #f0ece3; font-family: 'Archivo', sans-serif; -webkit-font-smoothing: antialiased; }
+a { color: #f0ece3; text-decoration: none; }
+a:hover { color: oklch(0.66 0.18 30); }
+::selection { background: oklch(0.66 0.18 30); color: #0e0e0d; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+@keyframes moonspin { to { transform: rotate(360deg); } }
+[data-idxrow] [data-idxthumb] { opacity: 0; transform: scale(0.92); transition: opacity .3s, transform .35s cubic-bezier(.2,.8,.2,1); }
+[data-idxrow]:hover [data-idxthumb] { opacity: 1; transform: scale(1); }
+[data-strip] { scrollbar-width: none; }
+[data-strip]::-webkit-scrollbar { display: none; }
+</style>
+</helmet>
+<div style="background:#0e0e0d;color:#f0ece3;overflow:clip">
+  <div data-intro-overlay="" style="position:fixed;inset:0;z-index:100;background:#0e0e0d;display:flex;flex-direction:column;justify-content:center;align-items:center;will-change:transform">
+    <span data-intro-glyph="" style="font-family:'Noto Serif JP',serif;font-weight:600;font-size:clamp(80px,14vw,180px);line-height:1;opacity:0;transform:scale(0.92);color:#f0ece3">月</span>
+    <div style="display:flex;overflow:hidden;margin-top:8px">
+      <span data-intro-letter="" style="display:inline-block;transform:translateY(115%);font-weight:850;font-stretch:125%;text-transform:uppercase;font-size:clamp(40px,7vw,96px);line-height:1;letter-spacing:-0.02em">G</span>
+      <span data-intro-letter="" style="display:inline-block;transform:translateY(115%);font-weight:850;font-stretch:125%;text-transform:uppercase;font-size:clamp(40px,7vw,96px);line-height:1;letter-spacing:-0.02em">E</span>
+      <span data-intro-letter="" style="display:inline-block;transform:translateY(115%);font-weight:850;font-stretch:125%;text-transform:uppercase;font-size:clamp(40px,7vw,96px);line-height:1;letter-spacing:-0.02em">T</span>
+      <span data-intro-letter="" style="display:inline-block;transform:translateY(115%);font-weight:850;font-stretch:125%;text-transform:uppercase;font-size:clamp(40px,7vw,96px);line-height:1;letter-spacing:-0.02em">S</span>
+      <span data-intro-letter="" style="display:inline-block;transform:translateY(115%);font-weight:850;font-stretch:125%;text-transform:uppercase;font-size:clamp(40px,7vw,96px);line-height:1;letter-spacing:-0.02em">U</span>
+    </div>
+    <div style="overflow:hidden;margin-top:10px">
+      <span data-intro-sub="" style="display:inline-block;transform:translateY(120%);font-family:'IBM Plex Mono',monospace;font-size:13px;text-transform:uppercase;letter-spacing:0.5em;color:rgba(240,236,227,0.6)">Collective</span>
+    </div>
+    <div style="position:absolute;left:32px;bottom:28px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;color:rgba(240,236,227,0.55)"><span data-intro-counter="">000</span> — 100</div>
+    <div style="position:absolute;right:32px;bottom:28px;font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(240,236,227,0.55)">Photo × Film</div>
+    <div style="position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(240,236,227,0.12)"><div data-intro-bar="" style="height:100%;width:0%;background:oklch(0.66 0.18 30)"></div></div>
+  </div>
+  <nav data-screen-label="Nav" style="position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px 32px;mix-blend-mode:difference">
+    <a href="#top" style="display:flex;align-items:center;gap:12px">
+      <span style="font-family:'Noto Serif JP',serif;font-weight:600;font-size:24px;line-height:1">月</span>
+      <span style="font-weight:800;font-stretch:115%;letter-spacing:0.14em;font-size:15px;text-transform:uppercase">Getsu <span style="font-weight:400;letter-spacing:0.3em;color:rgba(240,236,227,0.6)">Collective</span></span>
+    </a>
+    <div style="display:flex;gap:28px;font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.08em">
+      <a href="#film">Film</a>
+      <a href="#photo">Photo</a>
+      <a href="#index">Index</a>
+      <a href="#studio">Studio</a>
+      <a href="#clients">Clients</a>
+      <a href="#fightwear" style="color:oklch(0.66 0.18 30)">Fightwear</a>
+    </div>
+    <a href="#contact" style="font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.08em;border:1px solid rgba(240,236,227,0.4);border-radius:999px;padding:9px 18px;transition:all .25s" style-hover="background:#f0ece3;color:#0e0e0d">Book a project</a>
+  </nav>
+
+  <div data-stripscroll="" style="height:250svh;position:relative">
+  <header id="top" data-screen-label="Hero" style="height:100svh;position:sticky;top:0;z-index:1;display:flex;flex-direction:column;justify-content:flex-end">
+    <div style="position:absolute;inset:0;overflow:hidden">
+      <div style="position:absolute;left:0;right:0;top:-55svh;height:155svh"><image-slot id="hero-still" shape="rect" placeholder="Drop hero still / showreel frame"></image-slot></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(14,14,13,0.92) 0%, rgba(14,14,13,0.25) 45%, rgba(14,14,13,0.5) 100%);pointer-events:none"></div>
+    </div>
+    <div style="position:relative;flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:90px 32px 24px;pointer-events:none">
+      <h1 data-reveal="0" style="margin:0;font-weight:850;font-stretch:125%;text-transform:uppercase;font-size:clamp(72px,15vw,260px);line-height:0.9;letter-spacing:-0.03em">getsu<sup style="font-size:0.18em;font-weight:600;vertical-align:1.9em;letter-spacing:0">®</sup></h1>
+      
+      <span data-reveal="2" style="margin-top:22px;font-family:'IBM Plex Mono',monospace;font-size:13px;text-transform:uppercase;letter-spacing:0.18em;color:rgba(240,236,227,0.75)">[ under the same moon 月 ]</span>
+    </div>
+    <div id="film" data-strip="" style="position:relative;border-top:1px dashed rgba(240,236,227,0.45);border-bottom:1px dashed rgba(240,236,227,0.45);display:flex;gap:72px;overflow-x:auto;padding:12px 32px;align-items:center">
+      <span style="flex:none;font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.18em;color:oklch(0.66 0.18 30)">Film —</span>
+      <a href="#index" style="display:flex;gap:18px;align-items:center;flex:none">
+        <div style="width:150px;height:88px;flex:none"><image-slot id="work-01" shape="rect" radius="2" placeholder="Film still 01"></image-slot></div>
+        <div style="display:flex;flex-direction:column;gap:2px;text-align:left">
+          <span style="font-weight:800;font-stretch:115%;text-transform:uppercase;font-size:19px;letter-spacing:0.01em">First Light</span>
+          <span style="font-family:'Noto Serif JP',serif;font-size:16px;text-transform:uppercase;letter-spacing:0.02em;color:rgba(240,236,227,0.8)">Brand film</span>
+        </div>
+      </a>
+      <a href="#index" style="display:flex;gap:18px;align-items:center;flex:none">
+        <div style="width:150px;height:88px;flex:none"><image-slot id="work-03" shape="rect" radius="2" placeholder="Film still 02"></image-slot></div>
+        <div style="display:flex;flex-direction:column;gap:2px;text-align:left">
+          <span style="font-weight:800;font-stretch:115%;text-transform:uppercase;font-size:19px;letter-spacing:0.01em">Night Shift</span>
+          <span style="font-family:'Noto Serif JP',serif;font-size:16px;text-transform:uppercase;letter-spacing:0.02em;color:rgba(240,236,227,0.8)">Documentary</span>
+        </div>
+      </a>
+      <a href="#index" style="display:flex;gap:18px;align-items:center;flex:none">
+        <div style="width:150px;height:88px;flex:none"><image-slot id="work-04" shape="rect" radius="2" placeholder="Film still 03"></image-slot></div>
+        <div style="display:flex;flex-direction:column;gap:2px;text-align:left">
+          <span style="font-weight:800;font-stretch:115%;text-transform:uppercase;font-size:19px;letter-spacing:0.01em">Half Moon Market</span>
+          <span style="font-family:'Noto Serif JP',serif;font-size:16px;text-transform:uppercase;letter-spacing:0.02em;color:rgba(240,236,227,0.8)">Short film</span>
+        </div>
+      </a>
+      <a href="#index" style="display:flex;gap:18px;align-items:center;flex:none">
+        <div style="width:150px;height:88px;flex:none"><image-slot id="work-05" shape="rect" radius="2" placeholder="Film still 04"></image-slot></div>
+        <div style="display:flex;flex-direction:column;gap:2px;text-align:left">
+          <span style="font-weight:800;font-stretch:115%;text-transform:uppercase;font-size:19px;letter-spacing:0.01em">Slow Water</span>
+          <span style="font-family:'Noto Serif JP',serif;font-size:16px;text-transform:uppercase;letter-spacing:0.02em;color:rgba(240,236,227,0.8)">Commercial</span>
+        </div>
+      </a>
+      <a href="#index" style="display:flex;gap:18px;align-items:center;flex:none">
+        <div style="width:150px;height:88px;flex:none"><image-slot id="film-05" shape="rect" radius="2" placeholder="Film still 05"></image-slot></div>
+        <div style="display:flex;flex-direction:column;gap:2px;text-align:left">
+          <span style="font-weight:800;font-stretch:115%;text-transform:uppercase;font-size:19px;letter-spacing:0.01em">Static Bloom</span>
+          <span style="font-family:'Noto Serif JP',serif;font-size:16px;text-transform:uppercase;letter-spacing:0.02em;color:rgba(240,236,227,0.8)">Music video</span>
+        </div>
+      </a>
+    </div>
+  </header>
+  </div>
+
+  <main style="position:relative;z-index:2;background:#0e0e0d;box-shadow:0 -30px 60px rgba(0,0,0,0.45)">
+  <div data-stripscroll="" style="height:250svh;position:relative">
+  <section id="photo" data-screen-label="Photography" style="position:sticky;top:0;height:100svh;display:flex;flex-direction:column;justify-content:center;padding:40px 0">
+    <div data-reveal="0" style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:36px;padding:0 32px">
+      <h2 style="margin:0;font-weight:850;font-stretch:125%;text-transform:uppercase;font-size:clamp(40px,6.5vw,104px);line-height:0.9;letter-spacing:-0.02em">Photo <sup style="font-family:'IBM Plex Mono',monospace;font-weight:400;font-size:0.22em;letter-spacing:0.1em;color:oklch(0.66 0.18 30);vertical-align:super">(05)</sup></h2>
+      <p style="margin:0;max-width:340px;font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.7;text-transform:uppercase;letter-spacing:0.06em;color:rgba(240,236,227,0.55)">Editorial, campaign and documentary stills. Drag the strip sideways.</p>
+    </div>
+    <div data-strip="" style="border-top:1px dashed rgba(240,236,227,0.45);border-bottom:1px dashed rgba(240,236,227,0.45);display:flex;gap:72px;overflow-x:auto;padding:14px 32px;align-items:center">
+      <span style="flex:none;font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.18em;color:oklch(0.66 0.18 30)">Photo —</span>
+      <a href="#index" style="display:flex;gap:18px;align-items:center;flex:none">
+        <div style="width:120px;height:150px;flex:none"><image-slot id="work-02" shape="rect" radius="2" placeholder="Photo 01"></image-slot></div>
+        <div style="display:flex;flex-direction:column;gap:2px;text-align:left">
+          <span style="font-weight:800;font-stretch:115%;text-transform:uppercase;font-size:19px;letter-spacing:0.01em">Paper Streets</span>
+          <span style="font-family:'Noto Serif JP',serif;font-size:16px;text-transform:uppercase;letter-spacing:0.02em;color:rgba(240,236,227,0.8)">Editorial</span>
+        </div>
+      </a>
+      <a href="#index" style="display:flex;gap:18px;align-items:center;flex:none">
+        <div style="width:120px;height:150px;flex:none"><image-slot id="work-06" shape="rect" radius="2" placeholder="Photo 02"></image-slot></div>
+        <div style="display:flex;flex-direction:column;gap:2px;text-align:left">
+          <span style="font-weight:800;font-stretch:115%;text-transform:uppercase;font-size:19px;letter-spacing:0.01em">Getsu Apparel 001</span>
+          <span style="font-family:'Noto Serif JP',serif;font-size:16px;text-transform:uppercase;letter-spacing:0.02em;color:rgba(240,236,227,0.8)">Campaign</span>
+        </div>
+      </a>
+      <a href="#index" style="display:flex;gap:18px;align-items:center;flex:none">
+        <div style="width:120px;height:150px;flex:none"><image-slot id="photo-03" shape="rect" radius="2" placeholder="Photo 03"></image-slot></div>
+        <div style="display:flex;flex-direction:column;gap:2px;text-align:left">
+          <span style="font-weight:800;font-stretch:115%;text-transform:uppercase;font-size:19px;letter-spacing:0.01em">Harbour Lines</span>
+          <span style="font-family:'Noto Serif JP',serif;font-size:16px;text-transform:uppercase;letter-spacing:0.02em;color:rgba(240,236,227,0.8)">Editorial</span>
+        </div>
+      </a>
+      <a href="#index" style="display:flex;gap:18px;align-items:center;flex:none">
+        <div style="width:120px;height:150px;flex:none"><image-slot id="photo-04" shape="rect" radius="2" placeholder="Photo 04"></image-slot></div>
+        <div style="display:flex;flex-direction:column;gap:2px;text-align:left">
+          <span style="font-weight:800;font-stretch:115%;text-transform:uppercase;font-size:19px;letter-spacing:0.01em">Moon Phase 002</span>
+          <span style="font-family:'Noto Serif JP',serif;font-size:16px;text-transform:uppercase;letter-spacing:0.02em;color:rgba(240,236,227,0.8)">Apparel</span>
+        </div>
+      </a>
+      <a href="#index" style="display:flex;gap:18px;align-items:center;flex:none">
+        <div style="width:120px;height:150px;flex:none"><image-slot id="photo-05" shape="rect" radius="2" placeholder="Photo 05"></image-slot></div>
+        <div style="display:flex;flex-direction:column;gap:2px;text-align:left">
+          <span style="font-weight:800;font-stretch:115%;text-transform:uppercase;font-size:19px;letter-spacing:0.01em">Winter Census</span>
+          <span style="font-family:'Noto Serif JP',serif;font-size:16px;text-transform:uppercase;letter-spacing:0.02em;color:rgba(240,236,227,0.8)">Documentary</span>
+        </div>
+      </a>
+    </div>
+  </section>
+  </div>
+
+  <section id="index" data-screen-label="Project index" style="padding:110px 32px 60px">
+    <div data-reveal="0" style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:28px">
+      <h2 style="margin:0;font-weight:850;font-stretch:125%;text-transform:uppercase;font-size:clamp(40px,6.5vw,104px);line-height:0.9;letter-spacing:-0.02em">Index <sup style="font-family:'IBM Plex Mono',monospace;font-weight:400;font-size:0.22em;letter-spacing:0.1em;color:oklch(0.66 0.18 30);vertical-align:super">(12)</sup></h2>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(240,236,227,0.55)">Every project, 2024 — 2026</span>
+    </div>
+    <div style="display:flex;flex-direction:column;border-top:1px solid rgba(240,236,227,0.15)">
+      <a href="#contact" data-reveal="0" data-idxrow="" style="display:grid;grid-template-columns:64px 1fr 150px 200px 70px 40px;align-items:center;gap:16px;padding:20px 12px;border-bottom:1px solid rgba(240,236,227,0.15);transition:background .2s,color .2s" style-hover="background:#f0ece3;color:#0e0e0d">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:inherit;opacity:0.5">01</span>
+        <span style="font-weight:750;font-stretch:118%;text-transform:uppercase;font-size:clamp(20px,2.6vw,34px);letter-spacing:-0.01em">First Light</span>
+        <span data-idxthumb="" style="width:150px;height:64px;display:block"><image-slot id="idx-01" shape="rect" radius="2" placeholder="Still"></image-slot></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;opacity:0.6">Brand film</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:0.6">2026</span>
+        <span style="font-size:20px;justify-self:end">↗</span>
+      </a>
+      <a href="#contact" data-reveal="0" data-idxrow="" style="display:grid;grid-template-columns:64px 1fr 150px 200px 70px 40px;align-items:center;gap:16px;padding:20px 12px;border-bottom:1px solid rgba(240,236,227,0.15);transition:background .2s,color .2s" style-hover="background:#f0ece3;color:#0e0e0d">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:0.5">02</span>
+        <span style="font-weight:750;font-stretch:118%;text-transform:uppercase;font-size:clamp(20px,2.6vw,34px);letter-spacing:-0.01em">Paper Streets</span>
+        <span data-idxthumb="" style="width:150px;height:64px;display:block"><image-slot id="idx-02" shape="rect" radius="2" placeholder="Still"></image-slot></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;opacity:0.6">Editorial stills</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:0.6">2026</span>
+        <span style="font-size:20px;justify-self:end">↗</span>
+      </a>
+      <a href="#contact" data-reveal="0" data-idxrow="" style="display:grid;grid-template-columns:64px 1fr 150px 200px 70px 40px;align-items:center;gap:16px;padding:20px 12px;border-bottom:1px solid rgba(240,236,227,0.15);transition:background .2s,color .2s" style-hover="background:#f0ece3;color:#0e0e0d">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:0.5">03</span>
+        <span style="font-weight:750;font-stretch:118%;text-transform:uppercase;font-size:clamp(20px,2.6vw,34px);letter-spacing:-0.01em">Moon Phase 002</span>
+        <span data-idxthumb="" style="width:150px;height:64px;display:block"><image-slot id="idx-03" shape="rect" radius="2" placeholder="Still"></image-slot></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;opacity:0.6">Apparel campaign</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:0.6">2026</span>
+        <span style="font-size:20px;justify-self:end">↗</span>
+      </a>
+      <a href="#contact" data-reveal="0" data-idxrow="" style="display:grid;grid-template-columns:64px 1fr 150px 200px 70px 40px;align-items:center;gap:16px;padding:20px 12px;border-bottom:1px solid rgba(240,236,227,0.15);transition:background .2s,color .2s" style-hover="background:#f0ece3;color:#0e0e0d">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:0.5">04</span>
+        <span style="font-weight:750;font-stretch:118%;text-transform:uppercase;font-size:clamp(20px,2.6vw,34px);letter-spacing:-0.01em">Night Shift</span>
+        <span data-idxthumb="" style="width:150px;height:64px;display:block"><image-slot id="idx-04" shape="rect" radius="2" placeholder="Still"></image-slot></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;opacity:0.6">Documentary</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:0.6">2025</span>
+        <span style="font-size:20px;justify-self:end">↗</span>
+      </a>
+      <a href="#contact" data-reveal="0" data-idxrow="" style="display:grid;grid-template-columns:64px 1fr 150px 200px 70px 40px;align-items:center;gap:16px;padding:20px 12px;border-bottom:1px solid rgba(240,236,227,0.15);transition:background .2s,color .2s" style-hover="background:#f0ece3;color:#0e0e0d">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:0.5">05</span>
+        <span style="font-weight:750;font-stretch:118%;text-transform:uppercase;font-size:clamp(20px,2.6vw,34px);letter-spacing:-0.01em">Half Moon Market</span>
+        <span data-idxthumb="" style="width:150px;height:64px;display:block"><image-slot id="idx-05" shape="rect" radius="2" placeholder="Still"></image-slot></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;opacity:0.6">Short film</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:0.6">2025</span>
+        <span style="font-size:20px;justify-self:end">↗</span>
+      </a>
+      <a href="#contact" data-reveal="0" data-idxrow="" style="display:grid;grid-template-columns:64px 1fr 150px 200px 70px 40px;align-items:center;gap:16px;padding:20px 12px;border-bottom:1px solid rgba(240,236,227,0.15);transition:background .2s,color .2s" style-hover="background:#f0ece3;color:#0e0e0d">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:0.5">06</span>
+        <span style="font-weight:750;font-stretch:118%;text-transform:uppercase;font-size:clamp(20px,2.6vw,34px);letter-spacing:-0.01em">Slow Water</span>
+        <span data-idxthumb="" style="width:150px;height:64px;display:block"><image-slot id="idx-06" shape="rect" radius="2" placeholder="Still"></image-slot></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;opacity:0.6">Commercial</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:0.6">2025</span>
+        <span style="font-size:20px;justify-self:end">↗</span>
+      </a>
+      <a href="#contact" data-reveal="0" data-idxrow="" style="display:grid;grid-template-columns:64px 1fr 150px 200px 70px 40px;align-items:center;gap:16px;padding:20px 12px;border-bottom:1px solid rgba(240,236,227,0.15);transition:background .2s,color .2s" style-hover="background:#f0ece3;color:#0e0e0d">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:0.5">07</span>
+        <span style="font-weight:750;font-stretch:118%;text-transform:uppercase;font-size:clamp(20px,2.6vw,34px);letter-spacing:-0.01em">The Distance Between</span>
+        <span data-idxthumb="" style="width:150px;height:64px;display:block"><image-slot id="idx-07" shape="rect" radius="2" placeholder="Still"></image-slot></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;opacity:0.6">Documentary</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:0.6">2025</span>
+        <span style="font-size:20px;justify-self:end">↗</span>
+      </a>
+      <a href="#contact" data-reveal="0" data-idxrow="" style="display:grid;grid-template-columns:64px 1fr 150px 200px 70px 40px;align-items:center;gap:16px;padding:20px 12px;border-bottom:1px solid rgba(240,236,227,0.15);transition:background .2s,color .2s" style-hover="background:#f0ece3;color:#0e0e0d">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:0.5">08</span>
+        <span style="font-weight:750;font-stretch:118%;text-transform:uppercase;font-size:clamp(20px,2.6vw,34px);letter-spacing:-0.01em">Moon Phase 001</span>
+        <span data-idxthumb="" style="width:150px;height:64px;display:block"><image-slot id="idx-08" shape="rect" radius="2" placeholder="Still"></image-slot></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;opacity:0.6">Apparel campaign</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:0.6">2024</span>
+        <span style="font-size:20px;justify-self:end">↗</span>
+      </a>
+      <a href="#contact" data-reveal="0" data-idxrow="" style="display:grid;grid-template-columns:64px 1fr 150px 200px 70px 40px;align-items:center;gap:16px;padding:20px 12px;border-bottom:1px solid rgba(240,236,227,0.15);transition:background .2s,color .2s" style-hover="background:#f0ece3;color:#0e0e0d">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:0.5">09</span>
+        <span style="font-weight:750;font-stretch:118%;text-transform:uppercase;font-size:clamp(20px,2.6vw,34px);letter-spacing:-0.01em">Ash &amp; Ember</span>
+        <span data-idxthumb="" style="width:150px;height:64px;display:block"><image-slot id="idx-09" shape="rect" radius="2" placeholder="Still"></image-slot></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;opacity:0.6">Brand film</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:0.6">2024</span>
+        <span style="font-size:20px;justify-self:end">↗</span>
+      </a>
+      <a href="#contact" data-reveal="0" data-idxrow="" style="display:grid;grid-template-columns:64px 1fr 150px 200px 70px 40px;align-items:center;gap:16px;padding:20px 12px;border-bottom:1px solid rgba(240,236,227,0.15);transition:background .2s,color .2s" style-hover="background:#f0ece3;color:#0e0e0d">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:0.5">10</span>
+        <span style="font-weight:750;font-stretch:118%;text-transform:uppercase;font-size:clamp(20px,2.6vw,34px);letter-spacing:-0.01em">Static Bloom</span>
+        <span data-idxthumb="" style="width:150px;height:64px;display:block"><image-slot id="idx-10" shape="rect" radius="2" placeholder="Still"></image-slot></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;opacity:0.6">Music / short</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:0.6">2024</span>
+        <span style="font-size:20px;justify-self:end">↗</span>
+      </a>
+      <a href="#contact" data-reveal="0" data-idxrow="" style="display:grid;grid-template-columns:64px 1fr 150px 200px 70px 40px;align-items:center;gap:16px;padding:20px 12px;border-bottom:1px solid rgba(240,236,227,0.15);transition:background .2s,color .2s" style-hover="background:#f0ece3;color:#0e0e0d">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:0.5">11</span>
+        <span style="font-weight:750;font-stretch:118%;text-transform:uppercase;font-size:clamp(20px,2.6vw,34px);letter-spacing:-0.01em">Harbour Lines</span>
+        <span data-idxthumb="" style="width:150px;height:64px;display:block"><image-slot id="idx-11" shape="rect" radius="2" placeholder="Still"></image-slot></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;opacity:0.6">Editorial stills</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:0.6">2024</span>
+        <span style="font-size:20px;justify-self:end">↗</span>
+      </a>
+      <a href="#contact" data-reveal="0" data-idxrow="" style="display:grid;grid-template-columns:64px 1fr 150px 200px 70px 40px;align-items:center;gap:16px;padding:20px 12px;border-bottom:1px solid rgba(240,236,227,0.15);transition:background .2s,color .2s" style-hover="background:#f0ece3;color:#0e0e0d">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:0.5">12</span>
+        <span style="font-weight:750;font-stretch:118%;text-transform:uppercase;font-size:clamp(20px,2.6vw,34px);letter-spacing:-0.01em">Winter Census</span>
+        <span data-idxthumb="" style="width:150px;height:64px;display:block"><image-slot id="idx-12" shape="rect" radius="2" placeholder="Still"></image-slot></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;opacity:0.6">Documentary</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:0.6">2024</span>
+        <span style="font-size:20px;justify-self:end">↗</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="studio" data-screen-label="Studio &amp; process" style="padding:110px 32px;border-top:1px solid rgba(240,236,227,0.12)">
+    <div style="display:grid;grid-template-columns:minmax(280px,5fr) 7fr;gap:48px;align-items:start">
+      <div data-reveal="0" style="position:sticky;top:100px">
+        <div style="aspect-ratio:4/5;overflow:hidden;border-radius:4px">
+          <image-slot id="studio-portrait" shape="rect" placeholder="Collective portrait / behind-the-scenes still"></image-slot>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding-top:14px;font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(240,236,227,0.5)">
+          <span>The collective, on set</span>
+          <span>月</span>
+        </div>
+      </div>
+      <div>
+        <h2 data-reveal="0" style="margin:0 0 28px;font-weight:850;font-stretch:125%;text-transform:uppercase;font-size:clamp(36px,5vw,80px);line-height:0.92;letter-spacing:-0.02em">Under the<br>same moon<span style="color:oklch(0.66 0.18 30)">.</span></h2>
+        <p data-reveal="1" style="margin:0 0 20px;font-size:clamp(18px,1.6vw,24px);line-height:1.5;color:rgba(240,236,227,0.85);max-width:640px;text-wrap:pretty">Getsu (月) means moon. We're a small collective of photographers and filmmakers who believe the best work happens between disciplines — a documentary eye on a brand film, a cinematographer's patience on a stills day.</p>
+        <p data-reveal="1" style="margin:0 0 48px;font-size:16px;line-height:1.6;color:rgba(240,236,227,0.6);max-width:560px;text-wrap:pretty">The same sensibility runs through our clothing line: quiet, considered pieces made in small runs, photographed by us, worn on our sets.</p>
+        <div data-reveal="2" style="display:flex;flex-direction:column;border-top:1px solid rgba(240,236,227,0.15)">
+          <div style="display:grid;grid-template-columns:56px 200px 1fr;gap:16px;padding:22px 0;border-bottom:1px solid rgba(240,236,227,0.15);align-items:baseline">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:oklch(0.66 0.18 30)">01</span>
+            <span style="font-weight:750;font-stretch:115%;text-transform:uppercase;font-size:18px">Listen</span>
+            <span style="font-size:15px;line-height:1.55;color:rgba(240,236,227,0.65)">Every project starts with a conversation, not a treatment. We learn your audience, your constraints, your ambition.</span>
+          </div>
+          <div style="display:grid;grid-template-columns:56px 200px 1fr;gap:16px;padding:22px 0;border-bottom:1px solid rgba(240,236,227,0.15);align-items:baseline">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:oklch(0.66 0.18 30)">02</span>
+            <span style="font-weight:750;font-stretch:115%;text-transform:uppercase;font-size:18px">Direct</span>
+            <span style="font-size:15px;line-height:1.55;color:rgba(240,236,227,0.65)">Treatment, boards, casting, location. You see exactly what we'll shoot before a single frame rolls.</span>
+          </div>
+          <div style="display:grid;grid-template-columns:56px 200px 1fr;gap:16px;padding:22px 0;border-bottom:1px solid rgba(240,236,227,0.15);align-items:baseline">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:oklch(0.66 0.18 30)">03</span>
+            <span style="font-weight:750;font-stretch:115%;text-transform:uppercase;font-size:18px">Craft</span>
+            <span style="font-size:15px;line-height:1.55;color:rgba(240,236,227,0.65)">Shoot days run photo and film in parallel — one crew, one look, twice the material.</span>
+          </div>
+          <div style="display:grid;grid-template-columns:56px 200px 1fr;gap:16px;padding:22px 0;border-bottom:1px solid rgba(240,236,227,0.15);align-items:baseline">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:oklch(0.66 0.18 30)">04</span>
+            <span style="font-weight:750;font-stretch:115%;text-transform:uppercase;font-size:18px">Deliver</span>
+            <span style="font-size:15px;line-height:1.55;color:rgba(240,236,227,0.65)">Edit, grade, and every cut-down your channels need. Delivered on time, organised, ready to publish.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="clients" data-screen-label="Clients" style="padding:80px 32px;border-top:1px solid rgba(240,236,227,0.12)">
+    <div data-reveal="0" style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:36px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(240,236,227,0.55)">Trusted by</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(240,236,227,0.35)">Drop client logos below — light marks on transparent work best</span>
+    </div>
+    <div data-reveal="1" style="display:grid;grid-template-columns:repeat(6,1fr);gap:16px">
+      <div style="aspect-ratio:3/2;border:1px solid rgba(240,236,227,0.12);border-radius:4px;padding:12px"><image-slot id="client-01" shape="rect" fit="contain" placeholder="Client logo 01"></image-slot></div>
+      <div style="aspect-ratio:3/2;border:1px solid rgba(240,236,227,0.12);border-radius:4px;padding:12px"><image-slot id="client-02" shape="rect" fit="contain" placeholder="Client logo 02"></image-slot></div>
+      <div style="aspect-ratio:3/2;border:1px solid rgba(240,236,227,0.12);border-radius:4px;padding:12px"><image-slot id="client-03" shape="rect" fit="contain" placeholder="Client logo 03"></image-slot></div>
+      <div style="aspect-ratio:3/2;border:1px solid rgba(240,236,227,0.12);border-radius:4px;padding:12px"><image-slot id="client-04" shape="rect" fit="contain" placeholder="Client logo 04"></image-slot></div>
+      <div style="aspect-ratio:3/2;border:1px solid rgba(240,236,227,0.12);border-radius:4px;padding:12px"><image-slot id="client-05" shape="rect" fit="contain" placeholder="Client logo 05"></image-slot></div>
+      <div style="aspect-ratio:3/2;border:1px solid rgba(240,236,227,0.12);border-radius:4px;padding:12px"><image-slot id="client-06" shape="rect" fit="contain" placeholder="Client logo 06"></image-slot></div>
+    </div>
+  </section>
+
+  <sc-if value="{{ showApparel }}" hint-placeholder-val="{{ true }}">
+  <section data-screen-label="Apparel" style="padding:110px 32px;border-top:1px solid rgba(240,236,227,0.12);display:grid;grid-template-columns:7fr minmax(280px,5fr);gap:48px;align-items:center">
+    <div>
+      <span data-reveal="0" style="font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:oklch(0.66 0.18 30)">月 Getsu Apparel</span>
+      <h2 data-reveal="0" style="margin:14px 0 20px;font-weight:850;font-stretch:125%;text-transform:uppercase;font-size:clamp(36px,5vw,80px);line-height:0.92;letter-spacing:-0.02em">Wear the<br><span style="color:transparent;-webkit-text-stroke:1.5px #f0ece3">frame</span></h2>
+      <p data-reveal="1" style="margin:0 0 32px;font-size:16px;line-height:1.6;color:rgba(240,236,227,0.65);max-width:480px;text-wrap:pretty">Small-run pieces from the collective — designed between shoots, photographed on our own sets. Drop 002 lands this winter.</p>
+      <a data-reveal="1" href="#contact" style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.08em;border:1px solid rgba(240,236,227,0.4);border-radius:999px;padding:12px 24px;transition:all .25s" style-hover="background:#f0ece3;color:#0e0e0d">Join the drop list</a>
+    </div>
+    <div data-reveal="1" style="aspect-ratio:4/5;overflow:hidden;border-radius:4px">
+      <image-slot id="apparel-still" shape="rect" placeholder="Apparel lookbook still — 4:5"></image-slot>
+    </div>
+  </section>
+  </sc-if>
+
+  <section id="fightwear" data-screen-label="Fightwear" style="position:relative;min-height:92svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;overflow:hidden;border-top:1px solid rgba(240,236,227,0.12);padding:100px 32px">
+    <div style="position:absolute;inset:0">
+      <image-slot id="fightwear-still" shape="rect" placeholder="Fightwear campaign still — gym, ring, raw light"></image-slot>
+      <div style="position:absolute;inset:0;background:rgba(14,14,13,0.72);pointer-events:none"></div>
+    </div>
+    <div style="position:relative;pointer-events:none;display:flex;flex-direction:column;align-items:center">
+      <span data-reveal="0" style="font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.24em;color:oklch(0.66 0.18 30)">月 Fightwear — dropping soon</span>
+      <h2 data-reveal="0" style="margin:18px 0 0;font-weight:850;font-stretch:125%;text-transform:uppercase;font-size:clamp(52px,9.5vw,150px);line-height:0.88;letter-spacing:-0.025em">Getsu<br><span style="color:transparent;-webkit-text-stroke:1.5px #f0ece3">Fight&nbsp;Co.</span></h2>
+      <p data-reveal="1" style="margin:26px 0 0;max-width:520px;font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(15px,1.4vw,19px);line-height:1.6;color:rgba(240,236,227,0.85);text-wrap:pretty">Fightwear built by the people who film the fight. Cut for the gym, the ring and the walkout — tested on our own shoots before it ever touches a shelf.</p>
+      <div data-reveal="2" style="display:flex;gap:16px;margin-top:34px;pointer-events:auto;flex-wrap:wrap;justify-content:center">
+        <a href="#contact" style="font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.08em;background:oklch(0.66 0.18 30);color:#0e0e0d;border-radius:999px;padding:13px 26px;transition:all .25s" style-hover="background:#f0ece3">Get first access</a>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.08em;border:1px dashed rgba(240,236,227,0.4);border-radius:999px;padding:13px 26px;color:rgba(240,236,227,0.75)">Drop 001 — Winter '26</span>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact" data-screen-label="Contact" style="padding:130px 32px 32px;border-top:1px solid rgba(240,236,227,0.12);position:relative;overflow:hidden">
+    <span aria-hidden="true" style="position:absolute;right:-40px;top:-60px;font-family:'Noto Serif JP',serif;font-weight:600;font-size:420px;line-height:1;color:rgba(240,236,227,0.05);pointer-events:none;user-select:none">月</span>
+    <span data-reveal="0" style="font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(240,236,227,0.55)">Have a project in mind?</span>
+    <h2 data-reveal="0" style="margin:16px 0 40px;font-weight:850;font-stretch:125%;text-transform:uppercase;font-size:clamp(52px,10vw,168px);line-height:0.88;letter-spacing:-0.025em;position:relative">Let's make<br>it <em style="font-style:italic;font-weight:400;font-stretch:80%;text-transform:none">together</em><span style="color:oklch(0.66 0.18 30)">.</span></h2>
+    <div data-reveal="1" style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:90px">
+      <a href="mailto:hello@getsucollective.com" style="font-weight:700;font-stretch:110%;font-size:clamp(20px,2.6vw,34px);border-bottom:2px solid oklch(0.66 0.18 30);padding-bottom:4px">hello@getsucollective.com</a>
+      <div style="display:flex;gap:24px;font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.08em">
+        <a href="#top">Instagram ↗</a>
+        <a href="#top">Vimeo ↗</a>
+        <a href="#top">YouTube ↗</a>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;border-top:1px solid rgba(240,236,227,0.12);padding-top:24px">
+      <img src="uploads/assets-1786679404483-ktc6.png" alt="Getsu Collective" style="height:56px;mix-blend-mode:screen">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(240,236,227,0.4)">© 2026 Getsu Collective — Photo × Film × Apparel</span>
+      <a href="#top" style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(240,236,227,0.55)">Back to top ↑</a>
+    </div>
+  </footer>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;reduceMotion&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: false, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Motion&quot;}, &quot;showApparel&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Sections&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return { showApparel: this.props.showApparel ?? true };
+  }
+  componentDidMount() {
+    const overlay = document.querySelector('[data-intro-overlay]');
+    this.setupNavHide();
+    this.setupFilmScroll();
+    this.setupHScroll();
+    if (this.props.reduceMotion) {
+      if (overlay) overlay.style.display = 'none';
+      return;
+    }
+    // Hide reveal targets before the curtain lifts so nothing flashes
+    this._revealEls = Array.from(document.querySelectorAll('[data-reveal]'));
+    this._revealEls.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(26px)';
+    });
+    this.runIntro(overlay).then(() => this.setupReveals());
+  }
+  runIntro(overlay) {
+    return new Promise(resolve => {
+      if (!overlay) return resolve();
+      document.body.style.overflow = 'hidden';
+      const ease = 'cubic-bezier(.2,.8,.2,1)';
+      const glyph = overlay.querySelector('[data-intro-glyph]');
+      const letters = overlay.querySelectorAll('[data-intro-letter]');
+      const sub = overlay.querySelector('[data-intro-sub]');
+      const counter = overlay.querySelector('[data-intro-counter]');
+      const bar = overlay.querySelector('[data-intro-bar]');
+      // Counter + progress bar: 0 -> 100 over 1.5s
+      const t0 = performance.now(), dur = 1500;
+      const tick = now => {
+        const p = Math.min(1, (now - t0) / dur);
+        const eased = 1 - Math.pow(1 - p, 3);
+        const n = Math.round(eased * 100);
+        if (counter) counter.textContent = String(n).padStart(3, '0');
+        if (bar) bar.style.width = (eased * 100) + '%';
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+      // Letters rise, staggered
+      letters.forEach((el, i) => {
+        el.style.transition = 'transform .8s ' + ease;
+        el.style.transitionDelay = (150 + i * 70) + 'ms';
+        requestAnimationFrame(() => { el.style.transform = 'translateY(0)'; });
+      });
+      if (sub) {
+        sub.style.transition = 'transform .7s ' + ease + ' .65s';
+        requestAnimationFrame(() => { sub.style.transform = 'translateY(0)'; });
+      }
+      if (glyph) {
+        glyph.style.transition = 'opacity .9s ' + ease + ' .1s, transform .9s ' + ease + ' .1s';
+        requestAnimationFrame(() => { glyph.style.opacity = '1'; glyph.style.transform = 'scale(1)'; });
+      }
+      // Curtain lift after the count completes
+      setTimeout(() => {
+        overlay.style.transition = 'transform .9s cubic-bezier(.76,0,.24,1)';
+        overlay.style.transform = 'translateY(-100%)';
+        setTimeout(() => {
+          overlay.style.display = 'none';
+          document.body.style.overflow = '';
+          resolve();
+        }, 900);
+      }, 1900);
+    });
+  }
+  setupReveals() {
+    let pending = (this._revealEls || []).slice();
+    pending.forEach(el => {
+      el.style.transition = 'opacity .7s cubic-bezier(.2,.8,.2,1), transform .7s cubic-bezier(.2,.8,.2,1)';
+      el.style.transitionDelay = (parseInt(el.getAttribute('data-reveal') || '0', 10) * 110) + 'ms';
+    });
+    let raf = 0;
+    const check = () => {
+      const vh = window.innerHeight;
+      pending = pending.filter(el => {
+        const r = el.getBoundingClientRect();
+        if (r.top < vh * 0.94 && r.bottom > 0) {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+          return false;
+        }
+        return true;
+      });
+      if (pending.length) raf = requestAnimationFrame(check);
+    };
+    raf = requestAnimationFrame(check);
+    this._revealCleanup = () => cancelAnimationFrame(raf);
+  }
+  setupFilmScroll() {
+    const lerp = this.props.reduceMotion ? 1 : 0.16;
+    const cleanups = [];
+    document.querySelectorAll('[data-stripscroll]').forEach(wrap => {
+      const strip = wrap.querySelector('[data-strip]');
+      if (!strip) return;
+      let target = 0, current = 0, raf = 0, dragging = false;
+      strip.addEventListener('pointerdown', () => { dragging = true; });
+      window.addEventListener('pointerup', () => { dragging = false; });
+      const update = () => {
+        const vh = window.innerHeight;
+        const total = wrap.offsetHeight - vh;
+        const p = total > 0 ? Math.min(1, Math.max(0, -wrap.getBoundingClientRect().top / total)) : 0;
+        target = p * Math.max(0, strip.scrollWidth - strip.clientWidth);
+      };
+      const loop = () => {
+        if (!dragging) {
+          current += (target - current) * lerp;
+          if (Math.abs(target - current) < 0.5) current = target;
+          strip.scrollLeft = current;
+        } else {
+          current = strip.scrollLeft;
+        }
+        raf = requestAnimationFrame(loop);
+      };
+      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+      update();
+      loop();
+      cleanups.push(() => {
+        cancelAnimationFrame(raf);
+        window.removeEventListener('scroll', update);
+        window.removeEventListener('resize', update);
+      });
+    });
+    this._filmCleanup = () => cleanups.forEach(fn => fn());
+  }
+  setupNavHide() {
+    const nav = document.querySelector('nav');
+    if (!nav) return;
+    nav.style.transition = 'transform .45s cubic-bezier(.2,.8,.2,1)';
+    const getY = () => -document.body.getBoundingClientRect().top;
+    let last = getY(), raf = 0;
+    const tick = () => {
+      const y = getY();
+      const delta = y - last;
+      if (y < 80 || delta < -4) nav.style.transform = 'translateY(0)';
+      else if (delta > 4) nav.style.transform = 'translateY(-110%)';
+      if (Math.abs(delta) > 0.5) last = y;
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    this._navCleanup = () => cancelAnimationFrame(raf);
+  }
+  setupHScroll() {
+    const wrap = document.querySelector('[data-hscroll]');
+    const track = document.querySelector('[data-htrack]');
+    const bar = document.querySelector('[data-hprogress]');
+    if (!wrap || !track) return;
+    let target = 0, current = 0, raf = 0;
+    const update = () => {
+      const vh = window.innerHeight;
+      const rect = wrap.getBoundingClientRect();
+      const total = wrap.offsetHeight - vh;
+      const p = total > 0 ? Math.min(1, Math.max(0, -rect.top / total)) : 0;
+      target = p * Math.max(0, track.scrollWidth - window.innerWidth);
+      if (bar) bar.style.width = (p * 100) + '%';
+    };
+    const lerp = this.props.reduceMotion ? 1 : 0.14;
+    const loop = () => {
+      current += (target - current) * lerp;
+      if (Math.abs(target - current) < 0.5) current = target;
+      track.style.transform = 'translate3d(' + (-current) + 'px,0,0)';
+      raf = requestAnimationFrame(loop);
+    };
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+    loop();
+    this._hcleanup = () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener('scroll', update);
+      window.removeEventListener('resize', update);
+    };
+  }
+  componentWillUnmount() {
+    if (this._revealCleanup) this._revealCleanup();
+    if (this._hcleanup) this._hcleanup();
+    if (this._navCleanup) this._navCleanup();
+    if (this._filmCleanup) this._filmCleanup();
+  }
+}
+</script>
+</body>
+</html>
